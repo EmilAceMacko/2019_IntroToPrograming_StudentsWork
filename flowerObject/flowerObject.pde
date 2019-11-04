@@ -9,6 +9,7 @@ float flowerToExplosionRatio = 5; /* The size ratio between flowers and their ex
   The size value differs because the explosion's size is determined by a diminishing velocity, which controls how far the smoke can spread.
 */
 
+Orb mouseOrb;
 
 //Explosion explo; // Test explosion instance (UNUSED)
 
@@ -48,6 +49,10 @@ void setup()
   //flowerList[2] = new Flower(_r1, _petals, _x+50, _y, -2, -2, 0, _pc);
   
   //explo = null; // Test explosion declared as "null" for no explosion (UNUSED)
+  
+  
+  // Create orb:
+  mouseOrb = new Orb(#AACCFF);
 }
 
 void mousePressed() // This function runs every frame that the user is holding a mouse button.
@@ -131,6 +136,11 @@ void draw()
       flowerList[freeSpot] = new Flower(new_radius, new_petals, new_x, new_y, new_xVel, new_yVel, new_rotVel, new_petalColor);
     }
   }
+  
+  
+  // Orb stuff:
+  mouseOrb.update();
+  mouseOrb.display();
   
   
   
