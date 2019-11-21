@@ -133,6 +133,21 @@ class Explosion
     }
     
     if(emitterCount <= 0 && particleCount <= 0) dead = true;
+    
+    
+    if(dead)
+    {
+      // Loop through the global explosion list:
+      for(int i = 0; i < explosionList.length; i++)
+      {
+        // If this explosion is in the current index:
+        if(explosionList[i] == this)
+        {
+          // Remove this explosion from the index.
+          explosionList[i] = null;
+        }
+      }
+    }
   }
   
   void display()
